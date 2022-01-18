@@ -2,11 +2,9 @@ from os import remove
 from re import L
 from Conversions import *
 from openpyxl import Workbook
-from openpyxl.styles import Font, Color, colors
 import Items
 
     
-
 class AlphaNum:
     """Create ways of getting certain values from Alphanumeric text"""
 
@@ -83,9 +81,9 @@ class AlphaNum:
             #ws1.append([listA[row]])
         wb.save(r"{Book}.xlsx")
         
-    
-    
-
+        
+        
+# ==== vestigial code ====
 #class Cell_Hoping:
  #   """Allow for common excel functions to be applied to displaced cells"""
   #  def __init__(self,Book): 
@@ -105,10 +103,5 @@ class AlphaNum:
             
        
     
-    def repeat_text_h(self,txt,count, step=0):
-        pass
-
-    
-#T = AlphaNum(r"C:\Users\AAske\OneDrive\Desktop\apps\Spreadsheet apps\names.txt")
-#print(T.Get_NUMS())
-#print(T.Get_ALPHA())
+   # def repeat_text_h(self,txt,count, step=0):
+    #    pass
