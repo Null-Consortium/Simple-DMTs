@@ -1,4 +1,4 @@
-# this is the main application window
+# this is the main file that runs the application
 from os import execl
 import PySimpleGUI as sg
 import sys
