@@ -5,8 +5,6 @@ from tkinter import *
 
 from Extra_Sheet_Tools import AlphaNum
 
-#fomart of window specs sg.Window(title="Hello World", layout=[[]], margins = (150,50)).read()
-
 sg.theme('black')
 
 #windows contents
@@ -75,34 +73,3 @@ while run:
             break
 
 window.close()
-
-
-    
-    
-
-
-
-
-
-# ---- Initial METHOD ----
-#if len(sys.argv) == 1:
-#    event, values = sg.Window('Alpha Numeric Parser',
-#                    [[sg.Text('Select a text file with alpha-numeric')],
-#                    [sg.In(), sg.FileBrowse()],
-#                    [sg.Open(), sg.Cancel()],
-#                    [sg.Text('',size=(1,10))]],
-                    
-#                    ).read(close=True)
-                    
-#    fname = values[0]
-#else:
-#    fname = sys.argv[1]
-
-#while True:
-#    if not fname:
-#        sg.popup("Cancel", "No filename supplied")
-#        raise SystemExit("Cancelling: no filename supplied")
-#    else:
-#        Test = AlphaNum(fname)
-       ## window['-OUTPUT-'].update(values['-IN-'])
-#        break
