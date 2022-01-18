@@ -1,8 +1,7 @@
+# this is the main application window
 from os import execl
 import PySimpleGUI as sg
 import sys
-from tkinter import *
-
 from Extra_Sheet_Tools import AlphaNum
 
 sg.theme('black')
