@@ -15,7 +15,9 @@ def Reverse(lst):
 #========         888888888        88     888    8888    88      88          8888          ===========
 #========        888     888       88       88888888       888888         888888           ===========
 #_____________________________________________________________________________________________
-# some code is marked with hashtag for testing/future updating purposes 
+# see " Tests" for images collected whilst producing some of Navi's current/to-be features 
+#IMPORTANT: In the demo the algos only be applied to past data until configuration for realtime data is complete
+
 #fig, ax = plt.subplots() 
 
 class In_Market:
@@ -77,7 +79,7 @@ class Patterns: # return only loc extremas that satifiy condition list, (NAVI wi
     
     def HS_Above(previous_prices,start,end,cutoff=0.05,show =False):
         """Return True if there is a head shoulder pattern above and/or below neckline
-        through previous (duration days) prices """ #note: we'll be looking at daily price changes until configure for realtime data
+        through previous (duration days) prices """ 
         previous_prices = np.array(previous_prices)[start:end]
         Head_Shoulder_Pattern = [False]
         loc = []
@@ -464,7 +466,7 @@ class Patterns: # return only loc extremas that satifiy condition list, (NAVI wi
             location[1].append(p[min3])
             location[1].append(p[max4])
         if show == True and all(conditions) == True:
-            #plt.plot(date,previous_prices)
+            #plt.plot(date,previous_prices) 
             #plt.scatter(loc,price_at_extremes,color="black",linewidths=0.2)
             #plt.plot(location[0],location[1],color="red")
             #plt.show()
@@ -479,7 +481,7 @@ class Patterns: # return only loc extremas that satifiy condition list, (NAVI wi
         DoubleB = [False]
         loc = []
         price_at_extremes = []
-        date = [] #replace this with the actual date 
+        date = [] 
         for i in range(len(previous_prices)):
             date.append(i)
         local_max = extrema(previous_prices,np.greater)[0]
@@ -572,8 +574,7 @@ class Patterns: # return only loc extremas that satifiy condition list, (NAVI wi
                     except IndexError:
                         break
                 
-                # define distance between each peak assuming a second peak accures
-
+      
 
                 if p[n] <= p[l] and p[m] >= p[n]*cutoff+p[n] and n>m:
                     conditions[3]=True
@@ -622,7 +623,7 @@ class Patterns: # return only loc extremas that satifiy condition list, (NAVI wi
                 return loc, price_at_extremes, location[0], location[1]
         else:
             return False
-        #print(f"{0} or {10} is/are not a valid local extreme index")
+       
     
     def Double_B(previous_prices,start,end,cutoff=0.01,show=False):
         """Within an subset of previuos prices, 
@@ -690,9 +691,6 @@ class Patterns: # return only loc extremas that satifiy condition list, (NAVI wi
                 else:
                     try:
                         if displacment >= iteration:
-                            #shift all previuos points by one outside loop by seting each outer step to last inloop step
-                            #shift displacement length to greatest indexed local extreme + 5
-                            #reset all in loop steps because it will only increment to eqaul new displacement 
                             i = local_max[displacment]
                             k = local_min[displacment]
                             l = local_max[displacment+1]      
@@ -712,9 +710,6 @@ class Patterns: # return only loc extremas that satifiy condition list, (NAVI wi
                 else:
                     try:
                         if displacment >= iteration:
-                            #shift all previuos points by one outside loop by seting each outer step to last inloop step
-                            #shift displacement length to greatest indexed local extreme + 5
-                            #reset all in loop steps because it will only increment to eqaul new displacement 
                             i = local_max[displacment]
                             k = local_min[displacment]
                             l = local_max[displacment+1]      
@@ -735,9 +730,7 @@ class Patterns: # return only loc extremas that satifiy condition list, (NAVI wi
                 else:
                     try: 
                         if displacment >= iteration:
-                            #shift all previuos points by one outside loop by seting each outer step to last inloop step
-                            #shift displacement length to greatest indexed local extreme + 5
-                            #reset all in loop steps because it will only increment to eqaul new displacement 
+                          
                             i = local_max[displacment]
                             k = local_min[displacment]
                             l = local_max[displacment+1]      
@@ -817,7 +810,7 @@ class Indicators:
             plt.scatter(time_at_uv,unusual_volume,color="purple")
             #plt.show()
 
-        return unusual_volume[-1] #returns latets point with unusally volume for Navi
+        return unusual_volume[-1] #will return last point with unusaul volume to Navi
 
 
         
